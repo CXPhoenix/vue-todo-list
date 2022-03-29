@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen space-y-10">
+  <div class="w-screen space-y-10 pb-5">
     <div class="flex w-full items-center justify-center bg-blue-600 py-5">
       <h1 class="text-center text-4xl text-gray-50">To Do List</h1>
     </div>
@@ -23,7 +23,7 @@
         </button>
       </div>
     </div>
-    <div class="mx-auto w-9/12">
+    <div class="mx-auto w-11/12 md:w-9/12">
       <Container
         @drop="onDrop"
         orientation="vertical"
@@ -31,7 +31,7 @@
       >
         <Draggable v-for="(item, index) in items" :key="item.id" class="w-full">
           <div
-            class="flex w-full cursor-grab items-center justify-between rounded-md border-2 border-gray-600 py-4 px-5 active:cursor-grabbing"
+            class="flex w-full cursor-grab items-center justify-between rounded-md border-2 border-gray-600 py-4 pl-4 pr-3 active:cursor-grabbing md:px-5"
           >
             <div class="break-words text-xl">
               <form @submit.prevent="onFixed(index)">
@@ -44,7 +44,9 @@
                 <input type="submit" v-show="false" />
               </form>
             </div>
-            <div class="flex items-center justify-evenly gap-x-8">
+            <div
+              class="flex w-full items-center justify-end gap-x-4 md:gap-x-8"
+            >
               <span class="cursor-pointer" @click="fixedItem(index)">
                 <i class="fa-solid fa-pen"></i>
               </span>
